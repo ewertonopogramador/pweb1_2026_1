@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action = "action_page.html">
+        <fieldset>
+        <br>
+        <legend>Sistema de Gestão Acadêmica</legend>
+            <h3>Manutenção de Usuários do Sistema Interno</h3>
+            
+            <label for=“login">Login:</label><br>
+            <input type="text" id="login" name="login"><br>
+            <label for=“senha">Senha:</label><br>
+            <input type="text" id="senha" name="senha">
+            <div></div>
+            <br>
+            <legend>Status:</legend>
+            <select name = "state" id = "state">
+                <option value = "active">Ativo</option>
+                <option value = "unactive">Inativo</option>
+            </select>
+
+            <br>
+            <legend>Tipo:</legend>
+            <input type="radio" id="type" name="tipo" value="tecnico">
+            <label for="type">Técnico</label>
+            <input type="radio" id="type" name="tipo" value="prof">
+            <label for="type">Professor</label>
+            <input type="radio" id="type" name="tipo" value="alun">
+            <label for="type">Aluno</label>  <br>
+
+            <br>
+            <legend>Data Criação:</legend>
+            <input type = "date">
+            <br>
+            <br>
+
+            <legend>Perfil:</legend>
+            <input type="radio" id="perfil" name="mperfil" value="convi">
+            <label for="perfil">convidado</label>
+            <input type="radio" id="perfil" name=",perfil" value="Admin">
+            <label for="perfil">Administrador</label>
+            <br>
+            <br>
+
+            <legend>Observações:</legend>
+             <textarea id="obs" name="obs" rows="4" cols="50"></textarea>
+             
+            <br>
+            <br>
+            <legend>Modulos</legend>
+            <input type="checkbox" id="compras" name="compras" value="cpr">
+            <label for="compras"> Compras</label>
+            <input type="checkbox" id="biblioteca" name="biblioteca" value="bibli">
+            <label for="biblioteca"> biblioteca</label><br>
+            <input type="checkbox" id="documento" name="documento" value="doc">
+            <label for="documento"> Documentação</label>
+            <input type="checkbox" id="Recursos" name="Recursos" value="rh">
+            <label for="Recursos"> Recursos Humanos</label>
+            <br>
+            <br>
+
+            <button>Salvar</button>
+            <button>Excluir</button>
+            <br>
+        </fieldset>
+    </form>
+</body>
+</html>
