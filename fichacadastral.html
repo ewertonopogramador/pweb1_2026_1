@@ -1,0 +1,110 @@
+#Exercício02
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+
+
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+    <style>
+      h2 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 24px;
+        text-align: center;
+      }
+
+      legend {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 24px;
+        text-align: center;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+      }
+
+      table {
+        width: 500px;
+        border-collapse: collapse;
+        border-spacing: 1px;
+        margin: 0 auto;
+      }
+
+      table td {
+        padding: 1px;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    </style>
+</head>
+
+<body>
+  <fieldset>
+  <legend>Ficha Cadastral</legend>
+  <form action="/action_page.html">
+  <table>
+    <tr>
+      <td> Nome: </td>
+      <td colspan="3"> <input type="text" name="nome" size="49" required>
+        <td />
+    </tr>
+
+    <tr>
+      <td> RG: </td>
+      <td><input type="number" name="rg" size="12" required> </td>
+      <td>CPF:</td>
+      <td><input type="number" name="cpf" size="12" required></td>
+    </tr>
+
+    <tr>
+      <td> Endereço: </td>
+      <td colspan="3"><input type="text" name="endereço" size="47" required>
+        <td />
+    </tr>
+
+    <tr>
+      <td>Sexo:</td>
+      <td>
+        <select name="sexo" required>
+          <option value="Feminino">Feminino</option>
+          <option value=“Masculino">Masculino</option>
+        </select>
+      </td>
+
+      <td>Data de nascimento:</td>
+      <td> <input type="date" id="start" name="trip-start" value="2026-01-01" min="1900-01-01" max="2026-12-31"
+          required /></td>
+    </tr>
+
+    <tr>
+      <td>Situação civil:</td>
+      <td colspan="3">
+        <input type="radio" name="estado civil" value="Solteiro(a)"> Solteiro(a)
+        <input type="radio" name="estado civil" value="Casado(a)"> Casado(a)
+        <input type="radio" name="estado civil" value="Viúvo(a)"> Viúvo(a)
+
+    </tr>
+    <tr>
+      <td colspan="4" style="text-align: center;">
+        <button type="reset" value="reset">Limpar dados</button>
+
+      </td>
+    </tr>
+  </table>
+  </form>
+</fieldset>
+  <a href="index.html" style="display: block; text-align: center; margin: 20px;">Voltar ao Início</a>
+  <script src="script.js"></script>
+</body>
+
+</html>

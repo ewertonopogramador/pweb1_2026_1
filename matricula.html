@@ -1,0 +1,99 @@
+#Exercício01 
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <Fieldset>
+    <h3>Formulário matrícula de alunos em uma escola</h3>
+    <form action="/action_page.html">
+
+    </form>
+    <style>
+      .nome[type="text"] {
+        width: 50ch;
+
+      }
+
+      .numero[type="number"] {
+        width: 8ch;
+      
+      }
+    </style>
+</head>
+
+<body>
+   <form method="POST" action="form.php">
+  <form>
+    <label>Nome: </label> <br>
+    <input class="nome" type="text" value="" maxlength="50" required> 
+  </form>
+<br>
+  
+  <form>
+    <label> Data de nascimento:</label>
+    <label> <input type="date" id="start" name="trip-start" value="2026-01-01" min="1900-01-01" max="2026-12-31" required</label> 
+  </form>
+
+<br>
+</br>
+  <form>
+    <label>E-mail: </label> <br>
+    <input class="nome" type="text" value=""required > 
+  </form>
+<br>
+  <form>
+      <label>Telefone: </label> 
+      <input class="numero" type="number" value="" maxlength="8"required> 
+    </form>
+
+  <br>
+  <label>Série escolar:</label>
+    <select name="série" required>
+      <option value="1 série">1 série</option>
+       <option value="2 série">2 série</option>
+      <option value="3 série">3 série</option>
+      <option value="4 série">4 série</option>
+     
+    </select>
+
+   <br>
+  </br>
+  
+  <label>Turno preferencial:</label>
+  
+      <input type="radio" name="Turno preferencial" value="Manhã"> Manhã
+      <input type="radio" name="Turno preferencial" value="Tarde"> Tarde
+      <input type="radio" name="Turno preferencial" value="Noite"> Noite
+
+  <form>
+    <label>Atividades extra-curriculares: </label><br></br>
+    <input type="checkbox" id="extra-curriculares" name="extra-curriculares" value="atividade"required>
+    
+    
+     <label for="Teatro"> Teatro</label>
+    <input type="checkbox" id="extra-curriculares" name="extra-curriculares" value="atividade">
+    <label for="Música"> Música</label><br>
+    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+    <label for="Pintura"> Pintura</label><br>
+    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+    <label for="Judô">Judô</label><br>
+    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+    <label for="Futebol">Futebol</label><br>
+  </form>
+<br>
+  <form> 
+    <a href="https://www.dicio.com.br/sucesso/">
+     <input type="button" value="Enviar" />
+  </a>
+  </form>
+
+  <a href="index.html" style="display: block; text-align: center; margin: 20px;">Voltar ao Início</a>
+  <script src="script.js"></script>
+</body>
+
+</html>
