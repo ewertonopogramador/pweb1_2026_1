@@ -5,8 +5,10 @@
         ["nome"=>"Ana", "idade" =>18],
         ["nome"=>"Chaves", "idade" =>10],
     ]; 
-    
+
     foreach ($pessoas as $key => $item){
-         echo "Indice: $key valor: $item <br>"; 
-         } 
+        $nome = $item['nome'];
+        $idade = $item['idade'];
+        echo "Indice: $key Nome: $nome Idade: $idade <br>"; 
+    } 
 ?>

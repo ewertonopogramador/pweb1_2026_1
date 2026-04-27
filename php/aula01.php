@@ -56,6 +56,10 @@
     ?>
      
     <p>Meu site <?=  $carro['modelo'] . " - Ano:" . $carro['ano']  ?></p>
+
+    <?php
+    include "./aula02.php";
+    ?>
     
 </body>
 
