@@ -1,5 +1,5 @@
 <?php 
-    include './php/header.php'
+    include '../header.php'
 ?>
 
 <div class="col">
@@ -8,5 +8,5 @@
 </div>
 
 </a><?php 
-    include './php/footer.php'
+    include '../footer.php'
 ?>
