@@ -1,5 +1,5 @@
 <?php 
-    include './php/header.php'
+    include '../header.php'
 ?>
 
 < class="col">
@@ -18,5 +18,5 @@
 </form>
 
 <?php 
-    include '../php/footer.php'
+    include '../footer.php'
 ?>
