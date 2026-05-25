@@ -63,7 +63,7 @@ public function destroy($id) {
         throw new Exception(("erro tudo " . $e->getMessage()));
     }
 }
-
+//SELECT * FROM tabela WHERE campo LIKE '%valor%';
 public function search($dados){
     $camp = $dados['tipo'];
     $valor = $dados['valor'];
