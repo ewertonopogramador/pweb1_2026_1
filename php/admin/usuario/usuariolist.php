@@ -1,4 +1,4 @@
-d<?php
+<?php
 include '../header.php';
 include_once "../database/db.class.php";
 
@@ -50,7 +50,7 @@ if(!empty($_POST)) {
 
 
 
-<div class="row">
+<div class="row mt-4">
     <table class="table table-striped table-hover">
         <thead>
             <tr>
@@ -69,10 +69,17 @@ if(!empty($_POST)) {
                 <td>$item->nome</td>  
                 <td>$item->telefone</td>
                 <td>$item->email</td>
-                <td><a class='btn btn-danger' title='excluir'
-                onclick='return confirm(\"deseja excluir?\")'
-                 href='/usuariolist.php?id=$item->id'.>deletar</a></td>    
-                </tr>";
+                <td>
+                    <a class='btn btn-warning' title='Editar'
+                        href='/usuarioform.php?id=$item->id'.>editar</a>
+                </td>    
+                
+                <td>
+                    <a class='btn btn-danger' title='excluir'
+                        onclick='return confirm(\"deseja excluir?\")'
+                        href='/usuariolist.php?id=$item->id'.>deletar</a></td>    
+                </tr>"
+                ;
                 }
             ?>
         </tbody>

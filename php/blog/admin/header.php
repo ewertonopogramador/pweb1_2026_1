@@ -33,8 +33,8 @@ function actionMessage($sucess = "",$error = ""){
 
 
 
-function getFormValue($field) {
-  return isset ($_POST[$field]) ? $_POST [$field] : '';
+function getFormValue($data, $field) {
+  return isset ($data-> $field) ? $data->$field : '';
 }
 
 
