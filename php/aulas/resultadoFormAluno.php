@@ -1,5 +1,5 @@
-<?php 
-    include '../header.php';
+<?php
+include '../header.php';
 ?>
 
 <div class="col-6">
@@ -7,13 +7,13 @@
     /*  echo"<p>". $_GET['nome'] . "</p>";
         echo"<p>". $_GET['email'] . "</p>";
     */
-    echo "<p>" . $_POST['nome']."</p>";
-    echo "<p>" . $_POST['email']."</p>";
-    echo "<p>" . $_POST['telefone']."</p>";
+    echo "<p>" . $_POST['nome'] . "</p>";
+    echo "<p>" . $_POST['email'] . "</p>";
+    echo "<p>" . $_POST['telefone'] . "</p>";
 
     ?>
 </div>
 
-</a><?php 
-    include '../footer.php';
+<?php
+include '../footer.php';
 ?>
