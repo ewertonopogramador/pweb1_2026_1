@@ -1,6 +1,12 @@
 <?php
 
+
+
+
 class db {
+
+
+
 
     private $host     = 'localhost';
     private $user     = 'root';
@@ -10,11 +16,17 @@ class db {
     private $table_name;
     private $conn; // conexão fica guardada para reutilizar
 
+
+
+
     public function __construct($table_name)
     {
         $this->table_name = $table_name;
         $this->conn = $this->connect(); // cria a conexão uma única vez
     }
+
+
+
 
     // Método privado: apenas a própria classe pode chamar
     private function connect()
@@ -33,13 +45,55 @@ class db {
         }
     }
 
+
+
+
 //SELECT*FROM tabela
-public function all(){
-	$sql = “SELECT * FROM $this->table_name”;
-	$st = $this ->conn->prepare($sql);
-	$st->execute();
-	return $st ->fetchAll(PDO::FETCH_CLASS);
+
+
+public function destroy($id) {
+
+
+    try{
+        $sql = "DELETE FROM $this->table_name WHERE id= ?;";
+        $st  = $this->conn->prepare($sql);
+        $st->execute([$id]);
+    } catch (PDOException $e) {
+        throw new Exception(("erro tudo " . $e->getMessage()));
+    }
 }
+
+
+//select * from tabela where campo like '%valor% (independente de onde o texto estiver)'
+
+
+public function search($dados){
+
+
+    $campo = $dados ['tipo'];
+    $valor = $dados ['valor'];
+    $sql = "SELECT * FROM $this->table_name WHERE $campo LIKE ?";
+
+
+    try{
+    $st = $this ->conn->prepare($sql);
+    $st->execute(["%$valor%"]);
+    return $st ->fetchALL(PDO::FETCH_CLASS);
+} catch (PDOException $e) {
+        throw new Exception(("erro tudo " . $e->getMessage()));
+    }
+}
+
+
+public function all(){
+    $sql = "SELECT * FROM $this->table_name";
+    $st = $this ->conn->prepare($sql);
+    $st->execute();
+    return $st ->fetchALL(PDO::FETCH_CLASS);
+}
+
+
+
 
     //INSERT INTO tabela ('campo1', 'campo2') VALUES (?, ?);
     public function store($dados)
@@ -49,6 +103,9 @@ public function all(){
         $vetorData = [];
         $sep = "";
 
+
+
+
         foreach($dados as $campo => $valor) {
             $campos .= $sep . $campo;
             $marcadores .= $sep . "?";
@@ -56,14 +113,19 @@ public function all(){
             $sep = ",";
         }
 
+
+
+
         $sql = "INSERT INTO $this->table_name ($campos) VALUES ($marcadores);";
         try{
             $st = $this->conn->prepare($sql);
             $st->execute($vetorData);
         } catch (PDOException $e) {
-            throw new Exception(“Erro ao inserir”, $e->getMessage());
+           throw new Exception("Erro ao inserir", $e->getMessage());
         }
+
+
+
 
     }
 }
-
