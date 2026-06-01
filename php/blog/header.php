@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -10,41 +9,51 @@
 </head>
 
 
+
+
 <?php
-function redirect($page, $time = 1500){
-	echo “<script>
-			setTimeout(() => window.location.href=’$page’,$time);
-</script>”;
+
+
+
+
+function redirect($page) {
+   echo "<script>
+            setTimeout(() => window.location.href = '$page', 1550);
+        </script>";
 }
-
-
 function actionMessage($sucess = "",$error = ""){
   if(!empty($sucess)) {
     echo "<div class='alert alert-success' role='alert'><strong>$sucess</strong></div>";
-    }  if(!empty($error)){
+    } if (!empty($error)){
       echo "<div class='alert alert-danger' role='alert'><strong>$error</strong>
         </div>";
   }
 }
-function showValidationError($errors = [])
-{
-	if(!empty($errors)){
-		echo "<div class='alert alert-danger' role='alert'><ul>";
-		echo "<strong> Erros no campos:</strong>";
-		foreach ($errors as $error){
-			echo $error;
-		}
-		echo "</ul></div>";
-	}
+
+
+
+
+function getFormValue($field) {
+  return isset ($_POST[$field]) ? $_POST [$field] : '';
 }
 
-function getFormValue($field)
-{
-	return isset($_POST [$field]) ? $_POST[$field] : ‘’;
+
+function showValidationError($errors = []) {
+  if (!empty($errors)){
+    echo "<div class='alert alert-danger' role='alert'><ul>";
+    echo "<strong>erro nos campos</strong>";
+    foreach ($errors as $error) {
+      echo $error;
+     
+    }
+    echo "</ul></div>";
+  }
 }
 ?>
+  <body>
 
-<body>
+
+
+
   <div class="container">
     <div class="row">
-
