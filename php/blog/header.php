@@ -13,12 +13,16 @@
 
 <?php
 
+if(session_status() === PHP_SESSION_NONE){
+    session_start();
+}
 
 
 
-function redirect($page) {
+
+function redirect($page, $time = 1500) {
    echo "<script>
-            setTimeout(() => window.location.href = '$page', 1550);
+            setTimeout(() => window.location.href = '$page',$time);
         </script>";
 }
 function actionMessage($sucess = "",$error = ""){

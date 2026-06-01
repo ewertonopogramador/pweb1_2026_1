@@ -1,6 +1,7 @@
 d<?php
 include '../header.php';
 include_once "../database/db.class.php";
+include '../autenticacao.php';
 
 $db = new db('usuario');
 
