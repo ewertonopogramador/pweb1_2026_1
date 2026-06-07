@@ -1,7 +1,7 @@
 <?php
 
 
-include_once '../database/db.class.php';
+include_once './database/db.class.php';
 
 
 $conn = new db("aluno");

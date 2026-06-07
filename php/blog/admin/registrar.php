@@ -1,6 +1,6 @@
 <?php
-include '../header.php';
-include_once "../database/db.class.php";
+include './header.php';
+include_once "./database/db.class.php";
 
 
 
@@ -9,6 +9,7 @@ $db = new db('usuario');
 $success = '';
 $actionError = '';
 $errors = [];
+$data = '';
 
 
 if(!empty($_GET['id'])){
@@ -39,30 +40,33 @@ if (!empty($_POST)) {
         }
 
 
-        if(empty($errors)) {
-            if (empty($_POST['id'])){
-                $db->store($_POST);
-                $sucess ="salvado";
+        if (empty($_POST['senha'])) {
+            $errors[] = "<li>O senha é obrigatório</li>";
+            if(strlen($_POST['senha'] <3)){
+                $errors[] = "<li>a senha tem q te 3 caracter obobobo</li>";
             }
-            else {
-                $db->update($_POST);
-                $sucess = "registro atualizado";
-            }
+       
         }
+
+
 
 
         if (empty($errors)) {
-            $db->store($_POST);
-            $success = "Registro Salvo com sucesso!";
-       
-        }
-        else {
-            $db->update($_POST);
-            $sucess = "registro atualizado com sucesso";
 
 
+        $dado = [
+        'nome' => $_POST['nome'],
+        'email' => $_POST['email'],
+        'telefone' => $_POST['telefone'] ? $_POST['telefone'] : "",
+        'senha' => password_hash( $_POST['senha'], PASSWORD_DEFAULT),
+        ];
+            $db->store($dado);
+            $success = "aiaiai pipipi poppopo";
             redirect('./UsuarioList.php');
+           
         }
+
+
     } catch (PDOException $e) {
         $actionError = $e->getMessage();
     } catch (Exception $e) {
@@ -85,9 +89,8 @@ if (!empty($_POST)) {
 
 
 
-    <form action="UsuarioForm.php" method="post">
-        <h3>Formulário Usuário</h3>
-        <input type="hidden" name="id" value="<?php echo getFormValue($data, 'id'); ?>">
+    <form action="registrar.php" method="post">
+        <h3>Registrar Usuário</h3>
         <div class="col-6">
             <label for="nome">Nome</label>
             <input type="text" name="nome" class="form-control" value="<?php echo getFormValue($data, 'nome'); ?>">
@@ -100,9 +103,17 @@ if (!empty($_POST)) {
             <label for="telefone">Telefone</label>
             <input type="text" name="telefone" class="form-control" value="<?php echo getFormValue($data,'telefone'); ?>">
         </div>
+
+
+        <div class="col-6">
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" class="form-control" value="<?php echo getFormValue($data,'senha'); ?>">
+        </div>
+
+
         <div class="mt-2">
-            <button type="submit" class="btn btn-success">Salvar</button>
-            <a href="./UsuarioList.php" class="btn btn-primary"> Voltar</a>
+            <button type="submit" class="btn btn-success">Salvar</button> ja tem uma conta
+            <a href="./login.php" class="btn btn-primary"> fazologin aq</a>
         </div>
 
 
@@ -125,3 +136,5 @@ if (!empty($_POST)) {
 <?php
 include '../footer.php';
 ?>
+
+
