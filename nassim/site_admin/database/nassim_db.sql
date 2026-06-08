@@ -14,17 +14,56 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- Copiando dados para a tabela nassim_db.categorias: ~0 rows (aproximadamente)
-DELETE FROM `categorias`;
 
--- Copiando dados para a tabela nassim_db.produtos: ~0 rows (aproximadamente)
-DELETE FROM `produtos`;
+-- Copiando estrutura do banco de dados para nassim_db
+CREATE DATABASE IF NOT EXISTS `nassim_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `nassim_db`;
 
--- Copiando dados para a tabela nassim_db.usuarios: ~0 rows (aproximadamente)
-DELETE FROM `usuarios`;
+-- Copiando estrutura para tabela nassim_db.categorias
+CREATE TABLE IF NOT EXISTS `categorias` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `descricao` text COLLATE utf8mb4_general_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela nassim_db.vendas: ~0 rows (aproximadamente)
-DELETE FROM `vendas`;
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela nassim_db.produtos
+CREATE TABLE IF NOT EXISTS `produtos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `marca` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `preco` decimal(10,2) DEFAULT NULL,
+  `estoque` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela nassim_db.usuarios
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `telefone` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `login` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `senha` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela nassim_db.vendas
+CREATE TABLE IF NOT EXISTS `vendas` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `cliente` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `valor_total` decimal(10,2) DEFAULT NULL,
+  `data_venda` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Exportação de dados foi desmarcado.
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
