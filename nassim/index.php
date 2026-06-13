@@ -42,6 +42,7 @@ FROM categorias
 
 ?>
 
+
 <div class="container mt-4">
 
     <div class="text-center mb-5">
@@ -195,67 +196,6 @@ FROM categorias
 
     </div>
 
-    <!-- Botões CRUD -->
-
-    <div class="mt-5">
-
-        <h2 class="text-center text-warning mb-4">
-
-            Administração
-
-        </h2>
-
-        <div class="row">
-
-            <div class="col-md-3 d-grid mb-3">
-
-                <a href="site_admin/usuario/usuarioList.php"
-                   class="btn btn-warning">
-
-                    Usuários
-
-                </a>
-
-            </div>
-
-            <div class="col-md-3 d-grid mb-3">
-
-                <a href="site_admin/produto/produtoList.php"
-                   class="btn btn-warning">
-
-                    Produtos
-
-                </a>
-
-            </div>
-
-            <div class="col-md-3 d-grid mb-3">
-
-                <a href="site_admin/categoria/categoriaList.php"
-                   class="btn btn-warning">
-
-                    Categorias
-
-                </a>
-
-            </div>
-
-            <div class="col-md-3 d-grid mb-3">
-
-                <a href="site_admin/venda/vendaList.php"
-                   class="btn btn-warning">
-
-                    Vendas
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
 
 <?php
 include 'footer.php';
