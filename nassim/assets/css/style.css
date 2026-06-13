@@ -1,0 +1,116 @@
+body {
+    background-color: #050a10;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Títulos */
+
+h1, h2, h3, h4, h5 {
+    color: #d4af37;
+}
+
+/* Cards */
+
+.card-nassim {
+    background: #111;
+    border: 1px solid #d4af37;
+    border-radius: 15px;
+    color: white;
+    transition: 0.3s;
+}
+
+.card-nassim:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.card-nassim .card-body {
+    padding: 20px;
+}
+
+/* Imagens */
+
+.card-nassim img {
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+    transition: 0.3s;
+}
+
+.card-nassim img:hover {
+    transform: scale(1.03);
+}
+
+/* Estatísticas */
+
+.text-warning {
+    color: #d4af37 !important;
+}
+
+/* Botões */
+
+.btn-warning {
+    background-color: #d4af37;
+    border-color: #d4af37;
+    color: #000;
+    font-weight: bold;
+}
+
+.btn-warning:hover {
+    background-color: #b8932f;
+    border-color: #b8932f;
+    color: #fff;
+}
+
+/* Cards das estatísticas */
+
+.row .card {
+    min-height: 170px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Produtos */
+
+.card h4 {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.card p {
+    color: #dcdcdc;
+}
+
+/* Separação das seções */
+
+section,
+.mt-5 {
+    margin-top: 60px !important;
+}
+
+/* Container principal */
+
+.container {
+    padding-bottom: 50px;
+}
+
+/* Links */
+
+a {
+    text-decoration: none;
+}
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+
+    .card-nassim img {
+        height: 220px;
+    }
+
+    h1.display-4 {
+        font-size: 2rem;
+    }
+
+}
