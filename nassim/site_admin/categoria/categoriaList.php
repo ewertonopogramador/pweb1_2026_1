@@ -33,8 +33,9 @@ $categorias = $db->all();
     <thead>
         <tr>
             <th>ID</th>
-            <th>Nome</th>
+            <th>Nome da Categoria</th>
             <th>Descrição</th>
+            <th>Coleção da Categoria de Perfumes</th>
             <th>Ações</th>
         </tr>
     </thead>
@@ -48,6 +49,7 @@ $categorias = $db->all();
                 <td><?= $categoria->id ?></td>
                 <td><?= $categoria->nome ?></td>
                 <td><?= $categoria->descricao ?></td>
+                <td><?= $categoria->colecaoperfume ?></td>
 
                 <td>
 

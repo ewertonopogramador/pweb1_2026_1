@@ -81,6 +81,14 @@ if (!empty($_POST)) {
                 rows="4"><?= isset($data->descricao) ? $data->descricao : '' ?></textarea>
         </div>
 
+         <div class="col-6 mb-2">
+            <label>Coleção da Categoria de Perfumes</label>
+            <input type="text"
+                name="colecaoperfume"
+                class="form-control"
+                value="<?= isset($data->colecaoperfume) ? $data->colecaoperfume : '' ?>">
+        </div>
+
         <button type="submit" class="btn btn-success">
             Salvar
         </button>
