@@ -28,6 +28,27 @@ $vendas = $db->all();
 
 </a>
 
+<form class="mb-3">
+
+    <div class="input-group">
+
+        <input
+            type="text"
+            id="pesquisa"
+            class="form-control"
+            placeholder="Pesquisar categoria..."
+        >
+
+        <button type="button" class="btn btn-primary">
+            🔍 Pesquisar
+        </button>
+
+    </div>
+
+</form>
+
+
+
 <table class="table table-striped table-bordered">
 
     <thead>
@@ -77,5 +98,35 @@ $vendas = $db->all();
     </tbody>
 
 </table>
+
+<script>
+
+const pesquisa = document.getElementById("pesquisa");
+
+pesquisa.addEventListener("keyup", function () {
+
+    let filtro = this.value.toLowerCase();
+
+    let linhas = document.querySelectorAll("#tabelaVendas tbody tr");
+
+    linhas.forEach(function (linha) {
+
+        let nomeVenda = linha.cells[1].textContent.toLowerCase();
+
+        if (nomeVenda.includes(filtro)) {
+
+            linha.style.display = "";
+
+        } else {
+
+            linha.style.display = "none";
+
+        }
+
+    });
+
+});
+
+</script>
 
 <?php include '../../footer.php'; ?>

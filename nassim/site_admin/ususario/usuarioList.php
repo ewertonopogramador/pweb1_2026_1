@@ -25,6 +25,26 @@ $usuarios = $db->all();
     Novo Usuário
 </a>
 
+
+<form class="mb-3">
+
+    <div class="input-group">
+
+        <input
+            type="text"
+            id="pesquisa"
+            class="form-control"
+            placeholder="Pesquisar categoria..."
+        >
+
+        <button type="button" class="btn btn-primary">
+            🔍 Pesquisar
+        </button>
+
+    </div>
+
+</form>
+
 <table class="table table-striped table-bordered">
 
     <thead>
@@ -74,5 +94,35 @@ $usuarios = $db->all();
     </tbody>
 
 </table>
+
+<script>
+
+const pesquisa = document.getElementById("pesquisa");
+
+pesquisa.addEventListener("keyup", function () {
+
+    let filtro = this.value.toLowerCase();
+
+    let linhas = document.querySelectorAll("#tabelaUsuarios tbody tr");
+
+    linhas.forEach(function (linha) {
+
+        let nomeCategoria = linha.cells[1].textContent.toLowerCase();
+
+        if (nomeUsuarios.includes(filtro)) {
+
+            linha.style.display = "";
+
+        } else {
+
+            linha.style.display = "none";
+
+        }
+
+    });
+
+});
+
+</script>
 
 <?php include '../../footer.php'; ?>

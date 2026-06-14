@@ -1,3 +1,4 @@
+```php
 <?php
 
 include '../../header.php';
@@ -21,23 +22,43 @@ $categorias = $db->all();
 
 <h2>Lista de Categorias</h2>
 
-<a href="categoriaForm.php"
-    class="btn btn-success mb-3">
-
+<a href="categoriaForm.php" class="btn btn-success mb-3">
     Nova Categoria
-
 </a>
 
-<table class="table table-striped table-bordered">
+<form class="mb-3">
+
+    <div class="input-group">
+
+        <input
+            type="text"
+            id="pesquisa"
+            class="form-control"
+            placeholder="Pesquisar categoria..."
+        >
+
+        <button type="button" class="btn btn-primary">
+            🔍 Pesquisar
+        </button>
+
+    </div>
+
+</form>
+
+<table class="table table-striped table-bordered" id="tabelaCategorias">
 
     <thead>
+
         <tr>
+
             <th>ID</th>
             <th>Nome da Categoria</th>
             <th>Descrição</th>
             <th>Coleção da Categoria de Perfumes</th>
             <th>Ações</th>
+
         </tr>
+
     </thead>
 
     <tbody>
@@ -47,8 +68,11 @@ $categorias = $db->all();
             <tr>
 
                 <td><?= $categoria->id ?></td>
+
                 <td><?= $categoria->nome ?></td>
+
                 <td><?= $categoria->descricao ?></td>
+
                 <td><?= $categoria->colecaoperfume ?></td>
 
                 <td>
@@ -78,4 +102,35 @@ $categorias = $db->all();
 
 </table>
 
+<script>
+
+const pesquisa = document.getElementById("pesquisa");
+
+pesquisa.addEventListener("keyup", function () {
+
+    let filtro = this.value.toLowerCase();
+
+    let linhas = document.querySelectorAll("#tabelaCategorias tbody tr");
+
+    linhas.forEach(function (linha) {
+
+        let nomeCategoria = linha.cells[1].textContent.toLowerCase();
+
+        if (nomeCategoria.includes(filtro)) {
+
+            linha.style.display = "";
+
+        } else {
+
+            linha.style.display = "none";
+
+        }
+
+    });
+
+});
+
+</script>
+
 <?php include '../../footer.php'; ?>
+```
