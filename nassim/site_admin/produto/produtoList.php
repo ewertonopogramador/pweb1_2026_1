@@ -33,7 +33,7 @@ $produtos = $db->all();
             type="text"
             id="pesquisa"
             class="form-control"
-            placeholder="Pesquisar categoria..."
+            placeholder="Pesquisar Produto..."
         >
 
         <button type="button" class="btn btn-primary">
@@ -45,7 +45,8 @@ $produtos = $db->all();
 </form>
 
 
-<table class="table table-striped table-bordered">
+
+<table class="table table-striped table-bordered" id="tabelaProdutos">
 
     <thead>
         <tr>

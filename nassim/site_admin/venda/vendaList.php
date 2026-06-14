@@ -36,7 +36,7 @@ $vendas = $db->all();
             type="text"
             id="pesquisa"
             class="form-control"
-            placeholder="Pesquisar categoria..."
+            placeholder="Pesquisar Venda..."
         >
 
         <button type="button" class="btn btn-primary">
@@ -49,7 +49,7 @@ $vendas = $db->all();
 
 
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered" id="tabelaVendas">
 
     <thead>
         <tr>

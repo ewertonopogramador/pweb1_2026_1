@@ -34,7 +34,7 @@ $usuarios = $db->all();
             type="text"
             id="pesquisa"
             class="form-control"
-            placeholder="Pesquisar categoria..."
+            placeholder="Pesquisar Usuário..."
         >
 
         <button type="button" class="btn btn-primary">
@@ -45,7 +45,7 @@ $usuarios = $db->all();
 
 </form>
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered" id="tabelaUsuarios">
 
     <thead>
         <tr>
@@ -107,9 +107,9 @@ pesquisa.addEventListener("keyup", function () {
 
     linhas.forEach(function (linha) {
 
-        let nomeCategoria = linha.cells[1].textContent.toLowerCase();
+        let nomeUsuario = linha.cells[1].textContent.toLowerCase();
 
-        if (nomeUsuarios.includes(filtro)) {
+        if (nomeUsuario.includes(filtro)) {
 
             linha.style.display = "";
 
@@ -122,6 +122,8 @@ pesquisa.addEventListener("keyup", function () {
     });
 
 });
+
+
 
 </script>
 
