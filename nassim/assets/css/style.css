@@ -1,3 +1,4 @@
+/* Página inteira: cor de fundo e imagem do banner */
 body {
     background-color: #050a10;
     background-image: url("img/banner-desertofundo.png");
@@ -9,13 +10,13 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Títulos */
+/* Títulos principais dourados */
 
 h1,h2,h3,h4,h5 {
     color: #d4af37;
 }
 
-/* Cards */
+/* Estilo dos cards do dashboard */
 
 .card-nassim {
     background: rgba(17, 17, 17, 0.85);
@@ -25,11 +26,13 @@ h1,h2,h3,h4,h5 {
     transition: 0.3s;
 }
 
+/* Efeito hover dos cards */
 .card-nassim:hover {
     transform: translateY(-8px);
     box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
 
+/* Conteúdo interno do card com transparência e blur */
 .card-nassim .card-body {
     padding: 20px;
     background: rgba(255, 255, 255, 0.06);
@@ -123,111 +126,134 @@ a {
 }
 
 /* login */
-.login-container{
+.login-container {
     min-height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.login-card{
+
+.login-card {
     width: 100%;
     max-width: 450px;
-     padding: 40px;
-    background: rgba(17,17,17,0.80);
+    padding: 40px;
+    background: rgba(17, 17, 17, 0.80);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(212,175,55,.5);
+    border: 1px solid rgba(212, 175, 55, .5);
     border-radius: 20px;
-    box-shadow: 0 0 30px rgba(0,0,0,.5);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
 }
-.login-icon{
+
+.login-icon {
     font-size: 80px;
     color: #d4af37;
     width: 130px;
     height: 130px;
     line-height: 130px;
     border-radius: 50%;
-    border: 2px solid rgba(212,175,55,.6);
-    background: rgba(255,255,255,.04);
+    border: 2px solid rgba(212, 175, 55, .6);
+    background: rgba(255, 255, 255, .04);
 }
-.login-input{
+
+.login-input {
     background: transparent;
     border: none;
-    border-bottom: 2px solid rgba(212,175,55,.5);
+    border-bottom: 2px solid rgba(212, 175, 55, .5);
     border-radius: 0;
     color: #fff;
 }
-.login-input:focus{
+
+.login-input:focus {
     background: transparent;
     color: #fff;
     box-shadow: none;
     border-color: #d4af37;
 }
-.login-input::placeholder{
-    color: rgba(255,255,255,.6);
+
+.login-input::placeholder {
+    color: rgba(255, 255, 255, .6);
 }
-.login-card label{
+
+.login-card label {
     color: #d4af37;
     font-weight: bold;
 }
-.btn-outline-warning{
+
+.btn-outline-warning {
     border: 1px solid #d4af37;
     color: #d4af37;
 }
-.btn-outline-warning:hover{
+
+.btn-outline-warning:hover {
     background: #d4af37;
     color: #000;
 }
-.login-card h2{
+
+.login-card h2 {
     font-weight: bold;
     letter-spacing: 1px;
 }
 
-/* crud listagem */
-.list-crud{
-    background: rgba(17,17,17,.85);
+/* Lista CRUD: caixa principal e estilo da tabela */
+.list-crud {
+    background: rgba(17, 17, 17, .85);
     border-radius: 15px;
-    border: 1px solid rgba(212,175,55,.5);
+    border: 1px solid rgba(212, 175, 55, .5);
     padding: 25px;
     margin-top: 30px;
 }
-.list-crud h2{
-    color:#d4af37;
-    margin-bottom:20px;
-}
-.list-crud .table{
-    color:white;
-    margin-bottom:0;
-}
-.list-crud .table thead{
-    background:#d4af37;
-    color:#000;
-}
-.list-crud .table td,
-.list-crud .table th{
-    vertical-align:middle;
-}
-.list-crud .table-striped>tbody>tr:nth-of-type(odd){
-    background:rgba(255,255,255,.03);
-}
-.list-crud .table-hover tbody tr:hover{
-    background:rgba(212,175,55,.10);
-}
-.list-crud .form-control{
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(212,175,55,.3);
-    color:white;
-}
-.list-crud .form-control::placeholder{
-    color:#bbb;
-}
-.list-crud .form-control:focus{
-    background:rgba(255,255,255,.08);
-    color:white;
-    border-color:#d4af37;
-    box-shadow:none;
+
+/* Título dentro da listagem */
+.list-crud h2 {
+    color: #d4af37;
+    margin-bottom: 20px;
 }
 
-/* crud form */
+/* Ajuste da tabela dentro da listagem */
+.list-crud .table {
+    color: white;
+    margin-bottom: 0;
+}
+
+/* Cabeçalho de tabela com destaque dourado */
+.list-crud .table thead {
+    background: #d4af37;
+    color: #000;
+}
+
+.list-crud .table td,
+.list-crud .table th {
+    vertical-align: middle;
+}
+
+/* Linhas intercaladas e hover suave */
+.list-crud .table-striped>tbody>tr:nth-of-type(odd) {
+    background: rgba(255, 255, 255, .03);
+}
+
+.list-crud .table-hover tbody tr:hover {
+    background: rgba(212, 175, 55, .10);
+}
+
+/* Inputs dentro da área CRUD */
+.list-crud .form-control {
+    background: rgba(255, 255, 255, .05);
+    border: 1px solid rgba(212, 175, 55, .3);
+    color: white;
+}
+
+.list-crud .form-control::placeholder {
+    color: #bbb;
+}
+
+.list-crud .form-control:focus {
+    background: rgba(255, 255, 255, .08);
+    color: white;
+    border-color: #d4af37;
+    box-shadow: none;
+}
+
+/* Formulários CRUD: quadro de cadastro/edição */
 .form-crud {
     background: rgba(17, 17, 17, 0.85);
     border: 1px solid rgba(212, 175, 55, 0.5);
@@ -237,30 +263,38 @@ a {
     max-width: 700px;
     margin: 30px auto;
 }
+
+/* Título do formulário */
 .form-crud h3 {
     color: #d4af37;
     margin-bottom: 25px;
     text-align: center;
 }
 
+/* Labels dos campos */
 .form-crud label {
     color: #d4af37;
     font-weight: bold;
 }
+
+/* Inputs do formulário */
 .form-crud .form-control {
-    background: rgba(255,255,255,.05);
-    border: 1px solid rgba(212,175,55,.3);
+    background: rgba(255, 255, 255, .05);
+    border: 1px solid rgba(212, 175, 55, .3);
     color: white;
 }
+
 .form-crud .form-control:focus {
-    background: rgba(255,255,255,.08);
+    background: rgba(255, 255, 255, .08);
     color: white;
     border-color: #d4af37;
-    box-shadow: 0 0 8px rgba(212,175,55,.4);
+    box-shadow: 0 0 8px rgba(212, 175, 55, .4);
 }
-.form-crud .form-control::placeholder{
-    color:#bbb;
+
+.form-crud .form-control::placeholder {
+    color: #bbb;
 }
-.form-crud .btn{
-    min-width:120px;
+
+.form-crud .btn {
+    min-width: 120px;
 }
