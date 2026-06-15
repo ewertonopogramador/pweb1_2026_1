@@ -19,85 +19,101 @@ $vendas = $db->all();
 
 ?>
 
-<h2>Lista de Vendas</h2>
+<div class="list-crud">
 
-<a href="vendaForm.php"
-    class="btn btn-success mb-3">
+    <div class="d-flex justify-content-between align-items-center mb-4">
 
-    Nova Venda
+        <h2>Lista de Vendas</h2>
 
-</a>
-
-<form class="mb-3">
-
-    <div class="input-group">
-
-        <input
-            type="text"
-            id="pesquisa"
-            class="form-control"
-            placeholder="Pesquisar Venda..."
-        >
-
-        <button type="button" class="btn btn-primary">
-            🔍 Pesquisar
-        </button>
+        <a href="vendaForm.php" class="btn btn-success">
+            <i class="fa-solid fa-plus me-1"></i>
+            Nova Venda
+        </a>
 
     </div>
 
-</form>
+    <form class="mb-4">
 
+        <div class="input-group">
 
+            <input
+                type="text"
+                id="pesquisa"
+                class="form-control"
+                placeholder="Pesquisar venda...">
 
-<table class="table table-striped table-bordered" id="tabelaVendas">
+            <button type="button" class="btn btn-warning">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
 
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Cliente</th>
-            <th>Valor Total</th>
-            <th>Data da Venda</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
+        </div>
 
-    <tbody>
+    </form>
 
-        <?php foreach ($vendas as $venda): ?>
+    <div class="table-responsive">
 
-            <tr>
+        <table class="table table-striped table-hover table-bordered" id="tabelaVendas">
 
-                <td><?= $venda->id ?></td>
-                <td><?= $venda->cliente ?></td>
-                <td>R$ <?= number_format($venda->valor_total, 2, ',', '.') ?></td>
-                <td><?= date('d/m/Y', strtotime($venda->data_venda)) ?></td>
+            <thead>
 
-                <td>
+                <tr>
+                    <th>ID</th>
+                    <th>Cliente</th>
+                    <th>Valor Total</th>
+                    <th>Data da Venda</th>
+                    <th width="170">Ações</th>
+                </tr>
 
-                    <a href="vendaForm.php?id=<?= $venda->id ?>"
-                        class="btn btn-primary btn-sm">
+            </thead>
 
-                        Editar
+            <tbody>
 
-                    </a>
+                <?php foreach ($vendas as $venda): ?>
 
-                    <a href="?delete=<?= $venda->id ?>"
-                        class="btn btn-danger btn-sm"
-                        onclick="return confirm('Deseja excluir esta venda?')">
+                    <tr>
 
-                        Excluir
+                        <td><?= $venda->id ?></td>
 
-                    </a>
+                        <td><?= $venda->cliente ?></td>
 
-                </td>
+                        <td>
+                            R$ <?= number_format($venda->valor_total, 2, ',', '.') ?>
+                        </td>
 
-            </tr>
+                        <td>
+                            <?= date('d/m/Y', strtotime($venda->data_venda)) ?>
+                        </td>
 
-        <?php endforeach; ?>
+                        <td>
 
-    </tbody>
+                            <a href="vendaForm.php?id=<?= $venda->id ?>"
+                                class="btn btn-primary btn-sm">
 
-</table>
+                                <i class="fa-solid fa-pen-to-square"></i>
+
+                            </a>
+
+                            <a href="?delete=<?= $venda->id ?>"
+                                class="btn btn-danger btn-sm"
+                                onclick="return confirm('Deseja excluir esta venda?')">
+
+                                <i class="fa-solid fa-trash"></i>
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                <?php endforeach; ?>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
 
 <script>
 
@@ -111,17 +127,9 @@ pesquisa.addEventListener("keyup", function () {
 
     linhas.forEach(function (linha) {
 
-        let nomeVenda = linha.cells[1].textContent.toLowerCase();
+        let cliente = linha.cells[1].textContent.toLowerCase();
 
-        if (nomeVenda.includes(filtro)) {
-
-            linha.style.display = "";
-
-        } else {
-
-            linha.style.display = "none";
-
-        }
+        linha.style.display = cliente.includes(filtro) ? "" : "none";
 
     });
 
@@ -130,3 +138,4 @@ pesquisa.addEventListener("keyup", function () {
 </script>
 
 <?php include '../../footer.php'; ?>
+```

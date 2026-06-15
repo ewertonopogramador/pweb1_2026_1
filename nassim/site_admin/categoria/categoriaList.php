@@ -19,116 +19,126 @@ $categorias = $db->all();
 
 ?>
 
-<h2>Lista de Categorias</h2>
+<div class="list-crud">
 
-<a href="categoriaForm.php" class="btn btn-success mb-3">
-    Nova Categoria
-</a>
+    <div class="d-flex justify-content-between align-items-center mb-4">
 
-<form class="mb-3">
+        <h2>Lista de Categorias</h2>
 
-    <div class="input-group">
-
-        <input
-            type="text"
-            id="pesquisa"
-            class="form-control"
-            placeholder="Pesquisar categoria..."
-        >
-
-        <button type="button" class="btn btn-primary">
-            🔍 Pesquisar
-        </button>
+        <a href="categoriaForm.php" class="btn btn-success">
+            <i class="fa-solid fa-plus me-1"></i>
+            Nova Categoria
+        </a>
 
     </div>
 
-</form>
+    <form class="mb-4">
 
-<table class="table table-striped table-bordered" id="tabelaCategorias">
+        <div class="input-group">
 
-    <thead>
+            <input
+                type="text"
+                id="pesquisa"
+                class="form-control"
+                placeholder="Pesquisar categoria...">
 
-        <tr>
+            <button type="button" class="btn btn-warning">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
 
-            <th>ID</th>
-            <th>Nome da Categoria</th>
-            <th>Descrição</th>
-            <th>Coleção da Categoria de Perfumes</th>
-            <th>Ações</th>
+        </div>
 
-        </tr>
+    </form>
 
-    </thead>
+    <div class="table-responsive">
 
-    <tbody>
+        <table class="table table-striped table-hover table-bordered" id="tabelaCategorias">
 
-        <?php foreach ($categorias as $categoria): ?>
+            <thead>
 
-            <tr>
+                <tr>
 
-                <td><?= $categoria->id ?></td>
+                    <th>ID</th>
+                    <th>Nome da Categoria</th>
+                    <th>Descrição</th>
+                    <th>Coleção da Categoria de Perfumes</th>
+                    <th width="170">Ações</th>
 
-                <td><?= $categoria->nome ?></td>
+                </tr>
 
-                <td><?= $categoria->descricao ?></td>
+            </thead>
 
-                <td><?= $categoria->colecaoperfume ?></td>
+            <tbody>
 
-                <td>
+                <?php foreach ($categorias as $categoria): ?>
 
-                    <a href="categoriaForm.php?id=<?= $categoria->id ?>"
-                        class="btn btn-primary btn-sm">
+                    <tr>
 
-                        Editar
+                        <td><?= $categoria->id ?></td>
 
-                    </a>
+                        <td><?= $categoria->nome ?></td>
 
-                    <a href="?delete=<?= $categoria->id ?>"
-                        class="btn btn-danger btn-sm"
-                        onclick="return confirm('Deseja excluir esta categoria?')">
+                        <td><?= $categoria->descricao ?></td>
 
-                        Excluir
+                        <td><?= $categoria->colecaoperfume ?></td>
 
-                    </a>
+                        <td>
 
-                </td>
+                            <a href="categoriaForm.php?id=<?= $categoria->id ?>"
+                                class="btn btn-primary btn-sm">
 
-            </tr>
+                                <i class="fa-solid fa-pen-to-square"></i>
 
-        <?php endforeach; ?>
+                            </a>
 
-    </tbody>
+                            <a href="?delete=<?= $categoria->id ?>"
+                                class="btn btn-danger btn-sm"
+                                onclick="return confirm('Deseja excluir esta categoria?')">
 
-</table>
+                                <i class="fa-solid fa-trash"></i>
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                <?php endforeach; ?>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
 
 <script>
+    const pesquisa = document.getElementById("pesquisa");
 
-const pesquisa = document.getElementById("pesquisa");
+    pesquisa.addEventListener("keyup", function() {
 
-pesquisa.addEventListener("keyup", function () {
+        let filtro = this.value.toLowerCase();
 
-    let filtro = this.value.toLowerCase();
+        let linhas = document.querySelectorAll("#tabelaCategorias tbody tr");
 
-    let linhas = document.querySelectorAll("#tabelaCategorias tbody tr");
+        linhas.forEach(function(linha) {
 
-    linhas.forEach(function (linha) {
+            let nomeCategoria = linha.cells[1].textContent.toLowerCase();
 
-        let nomeCategoria = linha.cells[1].textContent.toLowerCase();
+            if (nomeCategoria.includes(filtro)) {
 
-        if (nomeCategoria.includes(filtro)) {
+                linha.style.display = "";
 
-            linha.style.display = "";
+            } else {
 
-        } else {
+                linha.style.display = "none";
 
-            linha.style.display = "none";
+            }
 
-        }
+        });
 
     });
-
-});
-
 </script>
 
 <?php include '../../footer.php'; ?>

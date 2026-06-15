@@ -38,6 +38,9 @@ function showValidationError($errors = [])
 <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
+<link rel="stylesheet"
+      href="/pweb1_2026_1/nassim/assets/css/style.css">
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
     <div class="container-fluid py-4 px-5">
 
@@ -89,5 +92,4 @@ function showValidationError($errors = [])
     </div>
 </nav>
 
-<div class="container mt-4">
-    <div class="row">
+<div class="container py-4">

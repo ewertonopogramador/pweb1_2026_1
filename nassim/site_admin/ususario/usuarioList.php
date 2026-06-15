@@ -19,112 +19,115 @@ $usuarios = $db->all();
 
 ?>
 
-<h2>Lista de Usuários</h2>
+<div class="list-crud">
 
-<a href="usuarioForm.php" class="btn btn-success mb-3">
-    Novo Usuário
-</a>
+    <!-- Cabeçalho da página com título e botão de criar novo usuário -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
 
+        <h2>Lista de Usuários</h2>
 
-<form class="mb-3">
-
-    <div class="input-group">
-
-        <input
-            type="text"
-            id="pesquisa"
-            class="form-control"
-            placeholder="Pesquisar Usuário..."
-        >
-
-        <button type="button" class="btn btn-primary">
-            🔍 Pesquisar
-        </button>
+        <a href="usuarioForm.php" class="btn btn-success">
+            <i class="fa-solid fa-plus me-1"></i>
+            Novo Usuário
+        </a>
 
     </div>
 
-</form>
+    <!-- Campo de busca para filtrar usuários na tabela -->
+    <form class="mb-4">
 
-<table class="table table-striped table-bordered" id="tabelaUsuarios">
+        <div class="input-group">
 
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Telefone</th>
-            <th>Email</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
+            <input
+                type="text"
+                id="pesquisa"
+                class="form-control"
+                placeholder="Pesquisar usuário...">
 
-    <tbody>
+            <button type="button" class="btn btn-warning">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
 
-        <?php foreach ($usuarios as $usuario): ?>
+        </div>
 
-            <tr>
+    </form>
 
-                <td><?= $usuario->id ?></td>
-                <td><?= $usuario->nome ?></td>
-                <td><?= $usuario->telefone ?></td>
-                <td><?= $usuario->email ?></td>
+    <!-- Tabela com a lista de usuários -->
+    <div class="table-responsive">
 
-                <td>
+        <table class="table table-striped table-hover table-bordered" id="tabelaUsuarios">
 
-                    <a href="usuarioForm.php?id=<?= $usuario->id ?>"
-                        class="btn btn-primary btn-sm">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                    <th width="170">Ações</th>
+                </tr>
+            </thead>
 
-                        Editar
+            <tbody>
 
-                    </a>
+                <?php foreach ($usuarios as $usuario): ?>
 
-                    <a href="?delete=<?= $usuario->id ?>"
-                        class="btn btn-danger btn-sm"
-                        onclick="return confirm('Deseja excluir?')">
+                    <tr>
 
-                        Excluir
+                        <td><?= $usuario->id ?></td>
+                        <td><?= $usuario->nome ?></td>
+                        <td><?= $usuario->telefone ?></td>
+                        <td><?= $usuario->email ?></td>
 
-                    </a>
+                        <td>
 
-                </td>
+                            <a href="usuarioForm.php?id=<?= $usuario->id ?>"
+                                class="btn btn-primary btn-sm">
 
-            </tr>
+                                <i class="fa-solid fa-pen-to-square"></i>
 
-        <?php endforeach; ?>
+                            </a>
 
-    </tbody>
+                            <a href="?delete=<?= $usuario->id ?>"
+                                class="btn btn-danger btn-sm"
+                                onclick="return confirm('Deseja excluir?')">
 
-</table>
+                                <i class="fa-solid fa-trash"></i>
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                <?php endforeach; ?>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
 
 <script>
+    // Filtra a tabela de usuários conforme o texto digitado
+    const pesquisa = document.getElementById("pesquisa");
 
-const pesquisa = document.getElementById("pesquisa");
+    pesquisa.addEventListener("keyup", function() {
 
-pesquisa.addEventListener("keyup", function () {
+        let filtro = this.value.toLowerCase();
 
-    let filtro = this.value.toLowerCase();
+        let linhas = document.querySelectorAll("#tabelaUsuarios tbody tr");
 
-    let linhas = document.querySelectorAll("#tabelaUsuarios tbody tr");
+        linhas.forEach(function(linha) {
 
-    linhas.forEach(function (linha) {
+            let nomeUsuario = linha.cells[1].textContent.toLowerCase();
 
-        let nomeUsuario = linha.cells[1].textContent.toLowerCase();
+            linha.style.display = nomeUsuario.includes(filtro) ? "" : "none";
 
-        if (nomeUsuario.includes(filtro)) {
-
-            linha.style.display = "";
-
-        } else {
-
-            linha.style.display = "none";
-
-        }
+        });
 
     });
-
-});
-
-
-
 </script>
 
 <?php include '../../footer.php'; ?>

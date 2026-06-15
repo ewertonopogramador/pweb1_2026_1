@@ -57,11 +57,13 @@ if (!empty($_POST)) {
 }
 ?>
 
-<div class="row">
+<div class="form-crud">
 
+    <!-- Mensagens de sucesso e erro -->
     <?php actionMessage($success, $actionError); ?>
     <?php showValidationError($errors); ?>
 
+    <!-- Formulário de cadastro/edição de venda -->
     <form action="" method="post">
 
         <h3>Cadastro de Venda</h3>
@@ -69,38 +71,44 @@ if (!empty($_POST)) {
         <input type="hidden" name="id"
             value="<?= isset($data->id) ? $data->id : '' ?>">
 
-        <div class="col-6 mb-2">
-            <label>Cliente</label>
-            <input type="text"
-                name="cliente"
-                class="form-control"
-                value="<?= isset($data->cliente) ? $data->cliente : '' ?>">
+        <div class="row g-3">
+
+            <div class="col-md-6">
+                <label>Cliente</label>
+                <input type="text"
+                    name="cliente"
+                    class="form-control"
+                    value="<?= isset($data->cliente) ? $data->cliente : '' ?>">
+            </div>
+
+            <div class="col-md-6">
+                <label>Valor Total</label>
+                <input type="number"
+                    step="0.01"
+                    name="valor_total"
+                    class="form-control"
+                    value="<?= isset($data->valor_total) ? $data->valor_total : '' ?>">
+            </div>
+
+            <div class="col-md-6">
+                <label>Data da Venda</label>
+                <input type="date"
+                    name="data_venda"
+                    class="form-control"
+                    value="<?= isset($data->data_venda) ? $data->data_venda : '' ?>">
+            </div>
+
         </div>
 
-        <div class="col-6 mb-2">
-            <label>Valor Total</label>
-            <input type="number"
-                step="0.01"
-                name="valor_total"
-                class="form-control"
-                value="<?= isset($data->valor_total) ? $data->valor_total : '' ?>">
+        <!-- Botões do formulário -->
+        <div class="mt-4 d-flex gap-2">
+            <button type="submit" class="btn btn-success">
+                Salvar
+            </button>
+            <a href="vendaList.php" class="btn btn-primary">
+                Voltar
+            </a>
         </div>
-
-        <div class="col-6 mb-3">
-            <label>Data da Venda</label>
-            <input type="date"
-                name="data_venda"
-                class="form-control"
-                value="<?= isset($data->data_venda) ? $data->data_venda : '' ?>">
-        </div>
-
-        <button type="submit" class="btn btn-success">
-            Salvar
-        </button>
-
-        <a href="vendaList.php" class="btn btn-primary">
-            Voltar
-        </a>
 
     </form>
 

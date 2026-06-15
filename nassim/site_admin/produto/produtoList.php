@@ -18,114 +18,123 @@ $produtos = $db->all();
 
 ?>
 
-<h2>Lista de Produtos</h2>
+<div class="list-crud">
 
-<a href="produtoForm.php" class="btn btn-success mb-3">
-    Novo Produto
-</a>
+    <div class="d-flex justify-content-between align-items-center mb-4">
 
+        <h2>Lista de Produtos</h2>
 
-<form class="mb-3">
-
-    <div class="input-group">
-
-        <input
-            type="text"
-            id="pesquisa"
-            class="form-control"
-            placeholder="Pesquisar Produto..."
-        >
-
-        <button type="button" class="btn btn-primary">
-            🔍 Pesquisar
-        </button>
+        <a href="produtoForm.php" class="btn btn-success">
+            <i class="fa-solid fa-plus me-1"></i>
+            Novo Produto
+        </a>
 
     </div>
 
-</form>
+    <form class="mb-4">
 
+        <div class="input-group">
 
+            <input
+                type="text"
+                id="pesquisa"
+                class="form-control"
+                placeholder="Pesquisar Produto...">
 
-<table class="table table-striped table-bordered" id="tabelaProdutos">
+            <button type="button" class="btn btn-warning">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
 
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Marca</th>
-            <th>Preço</th>
-            <th>Estoque</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
+        </div>
 
-    <tbody>
+    </form>
 
-        <?php foreach ($produtos as $produto): ?>
+    <div class="table-responsive">
 
-            <tr>
+        <table class="table table-striped table-hover table-bordered" id="tabelaProdutos">
 
-                <td><?= $produto->id ?></td>
-                <td><?= $produto->nome ?></td>
-                <td><?= $produto->marca ?></td>
-                <td>R$ <?= number_format($produto->preco, 2, ',', '.') ?></td>
-                <td><?= $produto->estoque ?></td>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Marca</th>
+                    <th>Preço</th>
+                    <th>Estoque</th>
+                    <th width="170">Ações</th>
+                </tr>
+            </thead>
 
-                <td>
+            <tbody>
 
-                    <a href="produtoForm.php?id=<?= $produto->id ?>"
-                        class="btn btn-primary btn-sm">
+                <?php foreach ($produtos as $produto): ?>
 
-                        Editar
+                    <tr>
 
-                    </a>
+                        <td><?= $produto->id ?></td>
+                        <td><?= $produto->nome ?></td>
+                        <td><?= $produto->marca ?></td>
+                        <td>
+                            R$ <?= number_format($produto->preco, 2, ',', '.') ?>
+                        </td>
+                        <td><?= $produto->estoque ?></td>
 
-                    <a href="?delete=<?= $produto->id ?>"
-                        class="btn btn-danger btn-sm"
-                        onclick="return confirm('Deseja excluir este produto?')">
+                        <td>
 
-                        Excluir
+                            <a href="produtoForm.php?id=<?= $produto->id ?>"
+                                class="btn btn-primary btn-sm">
 
-                    </a>
+                                <i class="fa-solid fa-pen-to-square"></i>
 
-                </td>
+                            </a>
 
-            </tr>
+                            <a href="?delete=<?= $produto->id ?>"
+                                class="btn btn-danger btn-sm"
+                                onclick="return confirm('Deseja excluir este produto?')">
 
-        <?php endforeach; ?>
+                                <i class="fa-solid fa-trash"></i>
 
-    </tbody>
+                            </a>
 
-</table>
+                        </td>
+
+                    </tr>
+
+                <?php endforeach; ?>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
 
 <script>
+    const pesquisa = document.getElementById("pesquisa");
 
-const pesquisa = document.getElementById("pesquisa");
+    pesquisa.addEventListener("keyup", function() {
 
-pesquisa.addEventListener("keyup", function () {
+        let filtro = this.value.toLowerCase();
 
-    let filtro = this.value.toLowerCase();
+        let linhas = document.querySelectorAll("#tabelaProdutos tbody tr");
 
-    let linhas = document.querySelectorAll("#tabelaProdutos tbody tr");
+        linhas.forEach(function(linha) {
 
-    linhas.forEach(function (linha) {
+            let nomeProduto = linha.cells[1].textContent.toLowerCase();
 
-        let nomeProduto = linha.cells[1].textContent.toLowerCase();
+            if (nomeProduto.includes(filtro)) {
 
-        if (nomeProduto.includes(filtro)) {
+                linha.style.display = "";
 
-            linha.style.display = "";
+            } else {
 
-        } else {
+                linha.style.display = "none";
 
-            linha.style.display = "none";
+            }
 
-        }
+        });
 
     });
-
-});
-
 </script>
 
 <?php include '../../footer.php'; ?>

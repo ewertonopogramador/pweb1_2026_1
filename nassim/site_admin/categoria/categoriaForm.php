@@ -53,11 +53,13 @@ if (!empty($_POST)) {
 }
 ?>
 
-<div class="row">
+<div class="form-crud">
 
+    <!-- Mensagens de sucesso e erro -->
     <?php actionMessage($success, $actionError); ?>
     <?php showValidationError($errors); ?>
 
+    <!-- Formulário de cadastro/edição de categoria -->
     <form action="" method="post">
 
         <h3>Cadastro de Categoria</h3>
@@ -65,37 +67,43 @@ if (!empty($_POST)) {
         <input type="hidden" name="id"
             value="<?= isset($data->id) ? $data->id : '' ?>">
 
-        <div class="col-6 mb-2">
-            <label>Nome</label>
-            <input type="text"
-                name="nome"
-                class="form-control"
-                value="<?= isset($data->nome) ? $data->nome : '' ?>">
+        <div class="row g-3">
+
+            <div class="col-md-6">
+                <label>Nome</label>
+                <input type="text"
+                    name="nome"
+                    class="form-control"
+                    value="<?= isset($data->nome) ? $data->nome : '' ?>">
+            </div>
+
+            <div class="col-md-6">
+                <label>Descrição</label>
+                <textarea
+                    name="descricao"
+                    class="form-control"
+                    rows="4"><?= isset($data->descricao) ? $data->descricao : '' ?></textarea>
+            </div>
+
+            <div class="col-md-6">
+                <label>Coleção da Categoria de Perfumes</label>
+                <input type="text"
+                    name="colecaoperfume"
+                    class="form-control"
+                    value="<?= isset($data->colecaoperfume) ? $data->colecaoperfume : '' ?>">
+            </div>
+
         </div>
 
-        <div class="col-6 mb-3">
-            <label>Descrição</label>
-            <textarea
-                name="descricao"
-                class="form-control"
-                rows="4"><?= isset($data->descricao) ? $data->descricao : '' ?></textarea>
+        <!-- Botões do formulário -->
+        <div class="mt-4 d-flex gap-2">
+            <button type="submit" class="btn btn-success">
+                Salvar
+            </button>
+            <a href="categoriaList.php" class="btn btn-primary">
+                Voltar
+            </a>
         </div>
-
-         <div class="col-6 mb-2">
-            <label>Coleção da Categoria de Perfumes</label>
-            <input type="text"
-                name="colecaoperfume"
-                class="form-control"
-                value="<?= isset($data->colecaoperfume) ? $data->colecaoperfume : '' ?>">
-        </div>
-
-        <button type="submit" class="btn btn-success">
-            Salvar
-        </button>
-
-        <a href="categoriaList.php" class="btn btn-primary">
-            Voltar
-        </a>
 
     </form>
 

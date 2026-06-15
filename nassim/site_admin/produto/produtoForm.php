@@ -61,11 +61,13 @@ if (!empty($_POST)) {
 }
 ?>
 
-<div class="row">
+<div class="form-crud">
 
+    <!-- Mensagens de sucesso e erro -->
     <?php actionMessage($success, $actionError); ?>
     <?php showValidationError($errors); ?>
 
+    <!-- Formulário de cadastro/edição de produto -->
     <form action="" method="post">
 
         <h3>Cadastro de Produto</h3>
@@ -73,46 +75,52 @@ if (!empty($_POST)) {
         <input type="hidden" name="id"
             value="<?= isset($data->id) ? $data->id : '' ?>">
 
-        <div class="col-6 mb-2">
-            <label>Nome</label>
-            <input type="text"
-                name="nome"
-                class="form-control"
-                value="<?= isset($data->nome) ? $data->nome : '' ?>">
+        <div class="row g-3">
+
+            <div class="col-md-6">
+                <label>Nome</label>
+                <input type="text"
+                    name="nome"
+                    class="form-control"
+                    value="<?= isset($data->nome) ? $data->nome : '' ?>">
+            </div>
+
+            <div class="col-md-6">
+                <label>Marca</label>
+                <input type="text"
+                    name="marca"
+                    class="form-control"
+                    value="<?= isset($data->marca) ? $data->marca : '' ?>">
+            </div>
+
+            <div class="col-md-6">
+                <label>Preço</label>
+                <input type="number"
+                    step="0.01"
+                    name="preco"
+                    class="form-control"
+                    value="<?= isset($data->preco) ? $data->preco : '' ?>">
+            </div>
+
+            <div class="col-md-6">
+                <label>Estoque</label>
+                <input type="number"
+                    name="estoque"
+                    class="form-control"
+                    value="<?= isset($data->estoque) ? $data->estoque : '' ?>">
+            </div>
+
         </div>
 
-        <div class="col-6 mb-2">
-            <label>Marca</label>
-            <input type="text"
-                name="marca"
-                class="form-control"
-                value="<?= isset($data->marca) ? $data->marca : '' ?>">
+        <!-- Botões do formulário -->
+        <div class="mt-4 d-flex gap-2">
+            <button type="submit" class="btn btn-success">
+                Salvar
+            </button>
+            <a href="produtoList.php" class="btn btn-primary">
+                Voltar
+            </a>
         </div>
-
-        <div class="col-6 mb-2">
-            <label>Preço</label>
-            <input type="number"
-                step="0.01"
-                name="preco"
-                class="form-control"
-                value="<?= isset($data->preco) ? $data->preco : '' ?>">
-        </div>
-
-        <div class="col-6 mb-3">
-            <label>Estoque</label>
-            <input type="number"
-                name="estoque"
-                class="form-control"
-                value="<?= isset($data->estoque) ? $data->estoque : '' ?>">
-        </div>
-
-        <button type="submit" class="btn btn-success">
-            Salvar
-        </button>
-
-        <a href="produtoList.php" class="btn btn-primary">
-            Voltar
-        </a>
 
     </form>
 

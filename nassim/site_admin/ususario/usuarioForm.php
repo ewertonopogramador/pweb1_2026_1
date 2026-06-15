@@ -74,56 +74,64 @@ if (!empty($_POST)) {
 }
 ?>
 
-<div class="row">
+<div class="form-crud">
 
+    <!-- Mensagens de sucesso e erro -->
     <?php actionMessage($success, $actionError); ?>
     <?php showValidationError($errors); ?>
 
+    <!-- Formulário de cadastro/edição de usuário -->
     <form action="" method="post">
 
         <h3>Cadastro de Usuário</h3>
 
         <input type="hidden" name="id"
-            value="<?php echo isset($data->id) ? $data->id : ''; ?>">
+            value="<?= isset($data->id) ? $data->id : ''; ?>">
 
-        <div class="col-6 mb-2">
-            <label>Nome</label>
-            <input type="text"
-                name="nome"
-                class="form-control"
-                value="<?php echo isset($data->nome) ? $data->nome : ''; ?>">
+        <div class="row g-3">
+
+            <div class="col-md-6">
+                <label>Nome</label>
+                <input type="text"
+                    name="nome"
+                    class="form-control"
+                    value="<?= isset($data->nome) ? $data->nome : ''; ?>">
+            </div>
+
+            <div class="col-md-6">
+                <label>Telefone</label>
+                <input type="text"
+                    name="telefone"
+                    class="form-control"
+                    value="<?= isset($data->telefone) ? $data->telefone : ''; ?>">
+            </div>
+
+            <div class="col-md-6">
+                <label>Email</label>
+                <input type="email"
+                    name="email"
+                    class="form-control"
+                    value="<?= isset($data->email) ? $data->email : ''; ?>">
+            </div>
+
+            <div class="col-md-6">
+                <label>Senha</label>
+                <input type="password"
+                    name="senha"
+                    class="form-control">
+            </div>
+
         </div>
 
-        <div class="col-6 mb-2">
-            <label>Telefone</label>
-            <input type="text"
-                name="telefone"
-                class="form-control"
-                value="<?php echo isset($data->telefone) ? $data->telefone : ''; ?>">
+        <!-- Botões do formulário -->
+        <div class="mt-4 d-flex gap-2">
+            <button type="submit" class="btn btn-success">
+                Salvar
+            </button>
+            <a href="usuarioList.php" class="btn btn-primary">
+                Voltar
+            </a>
         </div>
-
-        <div class="col-6 mb-2">
-            <label>Email</label>
-            <input type="email"
-                name="email"
-                class="form-control"
-                value="<?php echo isset($data->email) ? $data->email : ''; ?>">
-        </div>
-
-        <div class="col-6 mb-3">
-            <label>Senha</label>
-            <input type="password"
-                name="senha"
-                class="form-control">
-        </div>
-
-        <button type="submit" class="btn btn-success">
-            Salvar
-        </button>
-
-        <a href="usuarioList.php" class="btn btn-primary">
-            Voltar
-        </a>
 
     </form>
 
