@@ -1,20 +1,25 @@
 body {
     background-color: #050a10;
+    background-image: url("img/banner-desertofundo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
     color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Títulos */
 
-h1, h2, h3, h4, h5 {
+h1,h2,h3,h4,h5 {
     color: #d4af37;
 }
 
 /* Cards */
 
 .card-nassim {
-    background: #111;
-    border: 1px solid #d4af37;
+    background: rgba(17, 17, 17, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.6);
     border-radius: 15px;
     color: white;
     transition: 0.3s;
@@ -27,6 +32,9 @@ h1, h2, h3, h4, h5 {
 
 .card-nassim .card-body {
     padding: 20px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
 }
 
 /* Imagens */
@@ -112,5 +120,147 @@ a {
     h1.display-4 {
         font-size: 2rem;
     }
+}
 
+/* login */
+.login-container{
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-card{
+    width: 100%;
+    max-width: 450px;
+     padding: 40px;
+    background: rgba(17,17,17,0.80);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212,175,55,.5);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,.5);
+}
+.login-icon{
+    font-size: 80px;
+    color: #d4af37;
+    width: 130px;
+    height: 130px;
+    line-height: 130px;
+    border-radius: 50%;
+    border: 2px solid rgba(212,175,55,.6);
+    background: rgba(255,255,255,.04);
+}
+.login-input{
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(212,175,55,.5);
+    border-radius: 0;
+    color: #fff;
+}
+.login-input:focus{
+    background: transparent;
+    color: #fff;
+    box-shadow: none;
+    border-color: #d4af37;
+}
+.login-input::placeholder{
+    color: rgba(255,255,255,.6);
+}
+.login-card label{
+    color: #d4af37;
+    font-weight: bold;
+}
+.btn-outline-warning{
+    border: 1px solid #d4af37;
+    color: #d4af37;
+}
+.btn-outline-warning:hover{
+    background: #d4af37;
+    color: #000;
+}
+.login-card h2{
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* crud listagem */
+.list-crud{
+    background: rgba(17,17,17,.85);
+    border-radius: 15px;
+    border: 1px solid rgba(212,175,55,.5);
+    padding: 25px;
+    margin-top: 30px;
+}
+.list-crud h2{
+    color:#d4af37;
+    margin-bottom:20px;
+}
+.list-crud .table{
+    color:white;
+    margin-bottom:0;
+}
+.list-crud .table thead{
+    background:#d4af37;
+    color:#000;
+}
+.list-crud .table td,
+.list-crud .table th{
+    vertical-align:middle;
+}
+.list-crud .table-striped>tbody>tr:nth-of-type(odd){
+    background:rgba(255,255,255,.03);
+}
+.list-crud .table-hover tbody tr:hover{
+    background:rgba(212,175,55,.10);
+}
+.list-crud .form-control{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(212,175,55,.3);
+    color:white;
+}
+.list-crud .form-control::placeholder{
+    color:#bbb;
+}
+.list-crud .form-control:focus{
+    background:rgba(255,255,255,.08);
+    color:white;
+    border-color:#d4af37;
+    box-shadow:none;
+}
+
+/* crud form */
+.form-crud {
+    background: rgba(17, 17, 17, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(8px);
+    padding: 30px;
+    max-width: 700px;
+    margin: 30px auto;
+}
+.form-crud h3 {
+    color: #d4af37;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.form-crud label {
+    color: #d4af37;
+    font-weight: bold;
+}
+.form-crud .form-control {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(212,175,55,.3);
+    color: white;
+}
+.form-crud .form-control:focus {
+    background: rgba(255,255,255,.08);
+    color: white;
+    border-color: #d4af37;
+    box-shadow: 0 0 8px rgba(212,175,55,.4);
+}
+.form-crud .form-control::placeholder{
+    color:#bbb;
+}
+.form-crud .btn{
+    min-width:120px;
 }

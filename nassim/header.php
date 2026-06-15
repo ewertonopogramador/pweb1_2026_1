@@ -32,43 +32,44 @@ function showValidationError($errors = [])
 
 <title>NASSIM</title>
 
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-    <div class="container-fluid">
+    <div class="container-fluid py-4 px-5">
 
-        <a class="navbar-brand" href="/NASSIM/index.php">
+        <a class="navbar-brand" href="/pweb1_2026_1/nassim/index.php">
             NASSIM
         </a>
 
         <div class="navbar-nav">
 
-            <a class="nav-link" href="/NASSIM/index.php">
-                Dashboard
+            <a class="nav-link" href="/pweb1_2026_1/nassim/index.php">
+                Inicio
             </a>
 
             <?php if (isset($_SESSION['usuario_id'])) : ?>
 
                 <a class="nav-link"
-                    href="/NASSIM/site_admin/ususario/usuarioList.php">
+                    href="/pweb1_2026_1/nassim/site_admin/ususario/usuarioList.php">
                     Usuários
                 </a>
 
                 <a class="nav-link"
-                    href="/NASSIM/site_admin/produto/produtoList.php">
+                    href="/pweb1_2026_1/nassim/site_admin/produto/produtoList.php">
                     Produtos
                 </a>
 
                 <a class="nav-link"
-                    href="/NASSIM/site_admin/categoria/categoriaList.php">
+                    href="/pweb1_2026_1/nassim/site_admin/categoria/categoriaList.php">
                     Categorias
                 </a>
 
                 <a class="nav-link"
-                    href="/NASSIM/site_admin/venda/vendaList.php">
+                    href="/pweb1_2026_1/nassim/site_admin/venda/vendaList.php">
                     Vendas
                 </a>
 
@@ -77,7 +78,7 @@ function showValidationError($errors = [])
                 </span>
 
                 <a class="nav-link text-warning"
-                    href="/NASSIM/site_admin/logout.php">
+                    href="/pweb1_2026_1/nassim/site_admin/logout.php">
                     Sair
                 </a>
 
